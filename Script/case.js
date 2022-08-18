@@ -11,10 +11,16 @@ function updateCase(isIncrease){
         newCaseValue = previousCaseValue - 1;
     }
     caseField.value = newCaseValue;
+
+    return newCaseValue;
 }
 
 document.getElementById('btn-casePlus').addEventListener('click',function(){
-    updateCase(true);
+    const newCaseValue = updateCase(true);
+
+    const caseTotalPrice = newCaseValue * 59;
+    const caseTotalElement = document.getElementById('case-total');
+    caseTotalElement.innerText = caseTotalPrice;
 })
 
 document.getElementById('btn-caseMinus').addEventListener('click',function(){
